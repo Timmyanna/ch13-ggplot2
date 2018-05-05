@@ -1,0 +1,15 @@
+---
+title: "My first visualization with ggplot2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![Alt text](ggplots/cut.png)
+
+![Alt text](ggplots/clarity.png)
+![Alt text](ggplots/price.png)
+![Alt text](ggplots/dodged.png)
+![Alt text](ggplots/summary.png)
