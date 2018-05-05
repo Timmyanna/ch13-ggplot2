@@ -12,30 +12,41 @@ library(ggplot2)
 
 # Draw a bar chart of the diamonds data, organized by cut
 # Each bar's height is based on the "count" (number) of diamonds with that cut
-
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut))
 
 # Use the `stat_count` to apply the statistical transformation "count" to the 
 # diamonds by cut. You do not need a separate geometry layer!
-
+ggplot(data = diamonds) +
+  stat_count(mapping = aes(x = cut))
 
 # Use the `stat_summary` function to draw a chart with a summary layer.
 # Map the x-position to diamond `cut`, and the y-position to diamond `depth`
 # Bonus: use `min` as the function ymin, `max` as the function ymax, and `median` 
 # as the function y
-
-
+ggplot(data = diamonds) +
+  stat_summary(mapping = aes(x = cut, y = depth),
+               fun.ymin = min, fun.ymax = max, fun.y = median)
+ggsave("diamonds_summary.png")
 
 ## Position Adjustments
 
 # Draw a bar chart of diamonds organized by cut, with each bar filled by clarity.
 # You should see a _stacked_ bar chart.
-
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut, fill = clarity)) +
+  scale_fill_brewer(palette = "Paired")
 
 # Draw the same chart again, but with each element positioned to "fill" the y axis
-
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = "fill") +
+  scale_fill_brewer(palette = "Paired")
 
 # Draw the same chart again, but with each element positioned to "dodge" each other
-
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge") +
+  scale_fill_brewer(palette = "Paired")
+ggsave("dodged.png", width = 7)
 
 # Draw a plot with point geometry with the x-position mapped to `cut` and the 
 # y-position mapped to `clarity`

@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![Alt text](ggplots/cut.png)
 
+
 ![Alt text](ggplots/clarity.png)
 ![Alt text](ggplots/price.png)
 ![Alt text](ggplots/dodged.png)
